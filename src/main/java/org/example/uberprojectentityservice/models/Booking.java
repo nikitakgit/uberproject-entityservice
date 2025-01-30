@@ -11,6 +11,10 @@ import java.util.Date;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+//automatically indexing is done by springboot
+//@Table(indexes = {
+//        @Index(columnList = "driver_id")
+//} )
 public class Booking extends BaseModel{
 
 
@@ -31,5 +35,11 @@ public class Booking extends BaseModel{
 
     @ManyToOne
     private Passenger passenger;
+
+    @OneToOne
+    private ExactLocation startLocation;
+
+    @OneToOne
+    private ExactLocation endLocation;
 }
 
